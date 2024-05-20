@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+        <ScrollView>
+        <VerticalStackLayout
+          Spacing="16"
+            Padding="20"
+            HorizontalOptions="Fill"
+            WidthRequest="600">
+
+                 <Label Text="Stylowanie elementu" 
+                    FontAttributes="Bold" 
+                    FontSize="24"
+                    TextColor="Black"
+                    HorizontalOptions="Center" />
+
+            <Label Text="Rozmiar:" 
+                   FontSize="18" 
+                   HorizontalOptions="Fill" />
+
+            <Label x:Name="textSizeLabel" 
+                   Text="Rozmiar: 16 " 
+                    FontSize="18" 
+                     HorizontalOptions="Fill" />
+
+            <Slider x:Name="textSizeSlider" 
+                       Minimum="16" 
+                       Maximum="48"
+                       Value="16"
+                       HorizontalOptions="Fill" 
+                       ValueChanged="TextSliderSlide" />
+
+            <Label Text="Pozycja tekstu" 
+                 FontSize="18" />
+             <Picker x:Name="textPositionPicker"
+                     Title="Pozycja tekstu"
+                      HorizontalOptions="Fill">
+             <Picker.ItemsSource>
+                        
+                     <x:Array Type="x:String">
+                       <x:String>End</x:String>
+                       <x:String>Center</x:String>
+                       <x:String>Start</x:String>
+                     </x:Array>
+                        
+                </Picker.ItemsSource>
+              </Picker>
+
+                <Label Text="Pogrubiony tekst?" 
+                       FontSize="18" />
+                <Switch x:Name="textBoldSwitch" IsToggled="false" />
+            
+                <Label Text="Pochylony tekst?" FontSize="18"/>
+                <Switch x:Name="textItalicSwitch" IsToggled="False"/>
+
+                <Button Text="Zatwierdź ustawienia"
+                        Clicked="ApplyChanges"
+                        HorizontalOptions="Center"
+                        TextColor="White"
+                        FontAttributes="Bold"/>
+
+                 <Line Stroke="Red" 
+                       HeightRequest="1"/>
+            
+                <Label x:Name="desiredText" 
+                       Text="Twoje cytaty będą się tu pojawiać" 
+                       FontSize="18" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"/>
+            
+    </VerticalStackLayout>
+   </ScrollView>
+ </ContentPage>
