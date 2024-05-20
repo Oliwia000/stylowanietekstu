@@ -1,0 +1,2 @@
+Œrodowisko programistyczne: Visual Studio 2022
+Uruchomiono aplikacjê: Windows11

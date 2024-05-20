@@ -3,27 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.MainPage">
 
-        <ScrollView>
+    <ScrollView>
         <VerticalStackLayout
           Spacing="16"
             Padding="20"
-            HorizontalOptions="Fill"
+            HorizontalOptions="FillAndExpand"
             WidthRequest="600">
 
-                 <Label Text="Stylowanie elementu" 
+                 <Label Text="Stylowanie elementu"  
                     FontAttributes="Bold" 
                     FontSize="24"
                     TextColor="Black"
+                     BackgroundColor="#558B2F"
                     HorizontalOptions="Center" />
-
-            <Label Text="Rozmiar:" 
-                   FontSize="18" 
-                   HorizontalOptions="Fill" />
 
             <Label x:Name="textSizeLabel" 
                    Text="Rozmiar: 16 " 
                     FontSize="18" 
-                     HorizontalOptions="Fill" />
+                     HorizontalOptions="FillAndExpand" />
 
             <Slider x:Name="textSizeSlider" 
                        Minimum="16" 
@@ -32,14 +29,13 @@
                        HorizontalOptions="Fill" 
                        ValueChanged="TextSliderSlide" />
 
-            <Label Text="Pozycja tekstu" 
-                 FontSize="18" />
              <Picker x:Name="textPositionPicker"
                      Title="Pozycja tekstu"
-                      HorizontalOptions="Fill">
+                      FontSize="18"
+                      HorizontalOptions="FillAndExpand">
              <Picker.ItemsSource>
-                        
-                     <x:Array Type="x:String">
+
+                    <x:Array Type="{x:Type x:String}">
                        <x:String>End</x:String>
                        <x:String>Center</x:String>
                        <x:String>Start</x:String>
@@ -48,24 +44,31 @@
                 </Picker.ItemsSource>
               </Picker>
 
-                <Label Text="Pogrubiony tekst?" 
-                       FontSize="18" />
-                <Switch x:Name="textBoldSwitch" IsToggled="false" />
-            
-                <Label Text="Pochylony tekst?" FontSize="18"/>
-                <Switch x:Name="textItalicSwitch" IsToggled="False"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 
-                <Button Text="Zatwierdź ustawienia"
+                <Label Text="Pogrubiony tekst?" 
+                       FontSize="18" 
+                       HorizontalOptions="StartAndExpand"/>
+            <Switch x:Name="textBoldSwitch" IsToggled="false" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Pochylony tekst?" FontSize="18"  HorizontalOptions="StartAndExpand"/>
+                <Switch x:Name="textItalicSwitch" IsToggled="False"/>
+            </StackLayout>
+        
+            <Button Text="Zatwierdź ustawienia"
                         Clicked="ApplyChanges"
+                        BackgroundColor="#558B2F"
                         HorizontalOptions="Center"
                         TextColor="White"
                         FontAttributes="Bold"/>
 
-                 <Line Stroke="Red" 
-                       HeightRequest="1"/>
-            
-                <Label x:Name="desiredText" 
-                       Text="Twoje cytaty będą się tu pojawiać" 
+            <BoxView BackgroundColor="#558B2F" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+
+            <Label x:Name="desiredText" 
+                       Text="Cytaty będą się tu pojawiać" 
                        FontSize="18" 
                        HorizontalOptions="Center"
                        VerticalOptions="CenterAndExpand"/>
