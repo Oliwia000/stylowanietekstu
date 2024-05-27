@@ -2,77 +2,105 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <LinearGradientBrush x:Key="GreenGradient" EndPoint="1,0">
+                <GradientStop Color="#558b2f" Offset="1.0" />
+                <GradientStop Color="#2c441b" Offset="0.1" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout
-          Spacing="16"
+            Spacing="16"
             Padding="20"
             HorizontalOptions="FillAndExpand"
             WidthRequest="600">
 
-                 <Label Text="Stylowanie elementu"  
-                    FontAttributes="Bold" 
-                    FontSize="24"
-                    TextColor="Black"
-                     BackgroundColor="#558B2F"
-                    HorizontalOptions="Center" />
+            <Frame Background="{StaticResource GreenGradient}" CornerRadius="5" Padding="10">
+                <Label Text="Stylowanie elementu"  
+                       FontAttributes="Bold" 
+                       FontSize="24"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow Brush="Black"/>
+                    </Label.Shadow>
+                </Label>
+            </Frame>
 
             <Label x:Name="textSizeLabel" 
                    Text="Rozmiar: 16 " 
-                    FontSize="18" 
-                     HorizontalOptions="FillAndExpand" />
+                   TextColor="Black"
+                   FontSize="18" 
+                   HorizontalOptions="FillAndExpand" />
 
             <Slider x:Name="textSizeSlider" 
-                       Minimum="16" 
-                       Maximum="48"
-                       Value="16"
-                       HorizontalOptions="Fill" 
-                       ValueChanged="TextSliderSlide" />
+                    Minimum="16" 
+                    Maximum="48"
+                    Value="16"
+                    HorizontalOptions="FillAndExpand" 
+                    ValueChanged="TextSliderSlide" />
 
-             <Picker x:Name="textPositionPicker"
-                     Title="Pozycja tekstu"
-                      FontSize="18"
-                      HorizontalOptions="FillAndExpand">
-             <Picker.ItemsSource>
-
+            <Picker x:Name="textPositionPicker"
+                    Title="Pozycja tekstu"
+                    TextColor="Black"
+                    FontSize="18"
+                    BackgroundColor="#558B2F"
+                    HorizontalOptions="FillAndExpand">
+                <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                       <x:String>End</x:String>
-                       <x:String>Center</x:String>
-                       <x:String>Start</x:String>
-                     </x:Array>
-                        
+                        <x:String>End</x:String>
+                        <x:String>Center</x:String>
+                        <x:String>Start</x:String>
+                    </x:Array>
                 </Picker.ItemsSource>
-              </Picker>
+            </Picker>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-
                 <Label Text="Pogrubiony tekst?" 
                        FontSize="18" 
+                       TextColor="Black"
                        HorizontalOptions="StartAndExpand"/>
-            <Switch x:Name="textBoldSwitch" IsToggled="false" />
+                <Switch x:Name="textBoldSwitch" IsToggled="false" />
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Label Text="Pochylony tekst?" FontSize="18"  HorizontalOptions="StartAndExpand"/>
+                <Label Text="Pochylony tekst?" 
+                       FontSize="18" 
+                       TextColor="Black"
+                       HorizontalOptions="StartAndExpand"/>
                 <Switch x:Name="textItalicSwitch" IsToggled="False"/>
             </StackLayout>
-        
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Podkreślenie?" 
+                       FontSize="18" 
+                       TextColor="Black"
+                       HorizontalOptions="StartAndExpand"/>
+                <Switch x:Name="underlineSwitch" IsToggled="False"/>
+            </StackLayout>
+
             <Button Text="Zatwierdź ustawienia"
-                        Clicked="ApplyChanges"
-                        BackgroundColor="#558B2F"
-                        HorizontalOptions="Center"
-                        TextColor="White"
-                        FontAttributes="Bold"/>
+                    Clicked="ApplyChanges"
+                    BackgroundColor="#558B2F"
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    x:Name="button"
+                    TextColor="White"
+                    FontAttributes="Bold"/>
 
-            <BoxView BackgroundColor="#558B2F" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
-
+            <BoxView BackgroundColor="#558B2F" 
+                     HeightRequest="1" 
+                     HorizontalOptions="FillAndExpand"/>
 
             <Label x:Name="desiredText" 
-                       Text="Cytaty będą się tu pojawiać" 
-                       FontSize="18" 
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand"/>
-            
-    </VerticalStackLayout>
-   </ScrollView>
- </ContentPage>
+                   Text="Cytaty będą się tu pojawiać" 
+                   FontSize="18" 
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

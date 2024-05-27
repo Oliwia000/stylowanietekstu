@@ -44,8 +44,9 @@ namespace MauiApp1
                         : layoutOptions[2];
                 bool isTextBald = textBoldSwitch.IsToggled;
                 bool isTextItalic = textItalicSwitch.IsToggled;
+                bool isTextUnderlined = underlineSwitch.IsToggled;
 
-                desiredText.FontSize = textSize;
+            desiredText.FontSize = textSize;
                 desiredText.HorizontalOptions = textPosition;
 
                 if (isTextBald && isTextItalic)
@@ -57,7 +58,10 @@ namespace MauiApp1
                 else
                     desiredText.FontAttributes = FontAttributes.None;
 
-                desiredText.Text = GenerateRandomQuote();
+            desiredText.TextDecorations = isTextUnderlined ? TextDecorations.Underline : TextDecorations.None;
+
+
+            desiredText.Text = GenerateRandomQuote();
             }
         } }
 
